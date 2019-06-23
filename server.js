@@ -20,8 +20,9 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
+var MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/tessel";
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/tessel", { useNewUrlParser: true });
+mongoose.connect(MONGO_URI);
 
 // Routes
 
