@@ -2,7 +2,7 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Requiring the `User` model for accessing the `users` collection
 var User = require("./userModel.js");
@@ -20,7 +20,7 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.PORT || "mongodb://localhost/tessel";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/tessel";
 // Connect to the Mongo DB
 mongoose.connect(MONGODB_URI);
 
